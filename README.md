@@ -75,3 +75,33 @@ El servidor enviando respuesta en HTML, para ser renderizada en el navegador, Na
 - La carga es mucho más rapida (performance)
 - Mejor SEO
 - Look & Feel
+
+# NextJS
+Create folder `next` -> npm init -> `npm i react react-dom next` -> `npm run start`
+package.json:
+```json
+{
+  "name": "nextjs",
+  "version": "1.0.0",
+  "description": "Next js en clase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^9.2.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
+```
+
+All inside a pages will be a url
+
+# Gatsby
+require install global `npm install -g gatsby-cli` -> `gatsby new react-video-gatsby` (download boilerplate and init project) -> `gatsby develop`
