@@ -45,6 +45,10 @@ minificar javascript
 
 `npm i -D webpack-manifest-plugin`
 
+`npm i -D clean-webpack-plugin`
+
+`npm i eslint eslint-loader`
+
 -------
 `npm outdated`
 `npm update`

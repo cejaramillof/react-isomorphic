@@ -7,6 +7,7 @@ const getManifest = () => {
     return {
       "main.css": "/assets/app.css",
       "main.js": "/assets/app.js",
+      "vendors.js": "/assets/vendor.js",
     };
   }
 };
