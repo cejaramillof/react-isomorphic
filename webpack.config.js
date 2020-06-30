@@ -3,10 +3,14 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
+require('dotenv').config();
+
+/*
 const dotenv = require('dotenv');
-
 dotenv.config();
+*/
 
 const isDev = (process.env.ENV === 'development');
 const entry = ['./src/frontend/index.js'];
@@ -15,7 +19,7 @@ if (isDev) entry.push('webpack-hot-middleware/client?path=/__webpack_hmr&timeout
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
-  entry,
+  entry, // the same at entry: entry;
   output: {
     path: path.resolve(__dirname, 'src/server/public'),
     filename: isDev ? 'assets/app.js' : 'assets/app-[hash].js',
@@ -23,6 +27,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
   module: {
     rules: [

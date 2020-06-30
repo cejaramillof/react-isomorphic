@@ -30,7 +30,20 @@ ignorara llamados a archivos css, para que no estallen desde el lado del servido
 para llamar archivos css desde node
 `npm i asset-require-hook`
 
+Remove
+`"start": "webpack-dev-server --open --mode development",`
 
+// también podemos enviarle las variables desde el package.json al build, pero no funciona en todos los OS, requeríría cross-env
+`"build": "ENV=production webpack-cli --config webpack.config.js",`
+
+optimizar el build, para comprimir assets
+`npm i -D compression-webpack-plugin`
+
+minificar javascript
+`npm i -D terser-webpack-plugin`
+
+
+`npm i -D webpack-manifest-plugin`
 
 -------
 `npm outdated`

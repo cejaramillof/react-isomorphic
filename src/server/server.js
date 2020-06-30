@@ -14,6 +14,7 @@ import cookieParser from 'cookie-parser';
 import boom from '@hapi/boom';
 import passport from 'passport';
 import axios from 'axios';
+import path from 'path';
 import reducer from '../frontend/reducers';
 import Layout from '../frontend/components/Layout';
 import serverRoutes from '../frontend/routes/serverRoutes';
@@ -30,8 +31,8 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use(express.static('dist'));
-// app.use('images', express.static('images'));
+// app.use('/assets', express.static(path.join(__dirname, '..', '/public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 require('./utils/auth/strategies/basic');
 
@@ -45,7 +46,8 @@ if (ENV === 'development') {
   app.use(webpackHotMiddleware(compiler));
 } else {
   app.use((req, res, next) => {
-    req.hashManifest = getManifest();
+    // req.hashManifest = getManifest();
+    if (!req.hashManifest) req.hashManifest = getManifest();
     next();
   });
   app.use(helmet()); // to add security Headers
